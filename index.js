@@ -15,7 +15,7 @@
             var now = new Date();
             var time = [now.getFullYear(), (now.getMonth() + 1), now.getDate()].join(".") + " " + [now.getHours(), now.getMinutes(), now.getSeconds()].join(":") + ";";
             fs.writeSync(file, time + params + "\n");
-            console.log("query received:", params);
+            console.log(params);
         }
                 
         res.writeHead(200, {
