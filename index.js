@@ -9,19 +9,19 @@
         var file = fs.openSync('data.txt', 'a', 666);
         
         var urlParts = url.parse(req.url, true);
-        var param = urlParts.query.param;
+        var params = JSON.stringify(urlParts.query);
         
-        if (param) {
+        if (params && params !== "{}") {
             var now = new Date();
             var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ";";
-            fs.writeSync(file, time + param + "\n");
-            console.log("Query received:", param);
+            fs.writeSync(file, time + params + "\n");
+            console.log("query received:", params);
         }
                 
         res.writeHead(200, {
             "Content-Type": "text/html"
         });
-        res.end();
+        res.end("query received");
         
     });
     
