@@ -13,7 +13,7 @@
         
         if (params && params !== "{}") {
             var now = new Date();
-            var time = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds() + ";";
+            var time = [now.getFullYear(), (now.getMonth() + 1), now.getDate()].join(".") + " " + [now.getHours(), now.getMinutes(), now.getSeconds()].join(":") + ";";
             fs.writeSync(file, time + params + "\n");
             console.log("query received:", params);
         }
