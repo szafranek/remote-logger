@@ -17,7 +17,7 @@
             fs.writeSync(file, time + params + "\n");
             console.log(params);
         }
-                
+        fs.close(file);
         res.writeHead(200, {
             "Content-Type": "text/html"
         });
