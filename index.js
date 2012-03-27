@@ -19,7 +19,9 @@
         }
         fs.close(file);
         res.writeHead(200, {
-            "Content-Type": "text/html"
+            "Content-Type": "text/html",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "X-Requested-With"
         });
         res.end("query received");
         
